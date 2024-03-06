@@ -24,4 +24,10 @@ export class ListEventComponent implements OnInit {
       this.evenements = evenements;
     });
   }
+
+  deleteEvenement(id: string) {
+    this.evenementService.deleteEvenement(id).subscribe(() => {
+      this.evenements = this.evenements?.filter(e => e.Id !== id);
+    })
+  }
 }

@@ -1,6 +1,6 @@
 <ul class="list-group">
-    @for (event of evenements; track event.Id) {
-        <li class="list-group-item">{{event.Titre}} - {{event.Description}} - {{event.Date}} - {{event.Heure}} - {{event.Lieu}}</li>
+    @for (event of evenements; track event.Titre) {
+        <li class="list-group-item">{{event.Titre}} - {{event.Description}} - {{event.Date}} - {{event.Heure}} - {{event.Lieu}}</li><button class="btn btn-danger" (click)="deleteEvenement(event.Id)">Delete</button>
     } @empty {
         <span> Il n'y a pas d'évènements</span>
     }

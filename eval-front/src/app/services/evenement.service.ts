@@ -18,5 +18,9 @@ export class EvenementService{
     getAllEvents(): Observable<EvenementDTO[]>{
         return this.apiService.get('GetAllEvenementHttpTrigger');
     }
+
+    deleteEvenement(id: string): Observable<any>{
+        return this.apiService.delete('DeleteEvenementHttpTrigger/' + id);
+    }
 }
 
