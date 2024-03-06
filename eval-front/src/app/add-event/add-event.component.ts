@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EvenementService } from '../services/evenement.service';
 import { Router } from '@angular/router';
-import { Evenement } from '../models/evenement';
+import { EvenementModel } from '../models/evenementModel';
 
 @Component({
   selector: 'app-add-event',
@@ -32,16 +32,14 @@ export class AddEventComponent implements OnInit {
   });
 
   onSubmit() {
-    var evenement: Evenement = {
-      titre: this.evenementForm.value.titre as string,
-      description: this.evenementForm.value.description as string,
-      date: this.evenementForm.value.date as Date,
-      heure: this.evenementForm.value.heure as string,
-      lieu: this.evenementForm.value.lieu as string,
+    var evenement: EvenementModel = {
+      Titre: this.evenementForm.value.titre as string,
+      Description: this.evenementForm.value.description as string,
+      Date: this.evenementForm.value.date as Date,
+      Heure: this.evenementForm.value.heure as string,
+      Lieu: this.evenementForm.value.lieu as string,
     };
     
-    this.evenementService.addEvent(evenement).subscribe();
-
-    this.router.navigate(['/']);
+    this.evenementService.addEvent(evenement).subscribe( () => this.router.navigate(['/']));
   }
 }
