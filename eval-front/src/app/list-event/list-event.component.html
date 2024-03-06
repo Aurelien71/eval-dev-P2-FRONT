@@ -1,6 +1,8 @@
 <ul class="list-group">
     @for (event of evenements; track event.Titre) {
-        <li class="list-group-item">{{event.Titre}} - {{event.Description}} - {{event.Date}} - {{event.Heure}} - {{event.Lieu}}</li><button class="btn btn-danger" (click)="deleteEvenement(event.Id)">Delete</button>
+        <li class="list-group-item">{{event.Titre}} - {{event.Description}} - {{event.Date}} - {{event.Heure}} - {{event.Lieu}}</li>
+        <button class="btn btn-danger" (click)="deleteEvenement(event.Id)">Delete</button>
+        <a routerLink="/edit" [state]="{Id: event.Id, Titre: event.Titre, Description: event.Description, Date: event.Date, Heure: event.Heure, Lieu: event.Lieu}"><button class="btn btn-primary">Edit</button></a>
     } @empty {
         <span> Il n'y a pas d'évènements</span>
     }

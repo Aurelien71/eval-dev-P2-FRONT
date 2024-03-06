@@ -22,5 +22,9 @@ export class EvenementService{
     deleteEvenement(id: string): Observable<any>{
         return this.apiService.delete('DeleteEvenementHttpTrigger/' + id);
     }
+
+    editEvenement(evenement: EvenementDTO): Observable<any>{
+        return this.apiService.put('EditEvenementHttpTrigger', evenement);
+    }
 }
 
